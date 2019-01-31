@@ -16,4 +16,25 @@
         </div>        
     </div>
 </body>
+<script>
+    const secHand = document.querySelector('.sec');
+    const hourHand = document.querySelector('.hour');
+    const minHand = document.querySelector('.min');
+    function setDate() {
+        var now = new Date();
+        const sec = now.getSeconds();
+        const hour = now.getHours();
+        const min = now.getMinutes();
+
+        const secDegrees = ((sec/60)* 360 )+ 90;
+        const hourDegrees = ((hour%12)*30) + 90;
+        const minDegrees = ((min/60)* 360 )+ 90;
+
+        secHand.style.transform = `rotate(${secDegrees}deg)` ;
+        hourHand.style.transform = `rotate(${hourDegrees}deg)` ;
+        minHand.style.transform = `rotate(${minDegrees}deg)` ;
+        console.log(secDegrees);
+    }
+    setInterval(setDate, 1000);
+</script>
 </html>
